@@ -38,3 +38,8 @@ export const SectionEnd = styled.View`
   justify-content: flex-end;
   padding-right: ${(props) => props.theme.space[1]};
 `;
+
+export const Img = styled.Image`
+  width: ${(props) => props.theme.sizes[3]};
+  height: ${(props) => props.theme.sizes[3]};
+`;
