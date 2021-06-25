@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TouchableWithoutFeedback, Keyboard, FlatList } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import RestaurantInfoCard from '../components/RestaurantInfoCard.js';
+import { Wrapper } from '../../../utility/GlobalStyles';
 import * as S from './styled.js';
 
 const RestaurantsScreen = () => {
@@ -9,7 +10,7 @@ const RestaurantsScreen = () => {
   const onChangeSearch = (query) => setSearchQuery(query);
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <S.SafeAreaView>
+      <Wrapper>
         <S.SearchContainer>
           <Searchbar
             placeholder="Search"
@@ -17,7 +18,7 @@ const RestaurantsScreen = () => {
             value={searchQuery}
           />
         </S.SearchContainer>
-        <S.MainWrapper>
+        <Wrapper>
           <S.RestaurantList
             keyExtractor={(item) => item.name}
             data={[
@@ -30,8 +31,8 @@ const RestaurantsScreen = () => {
             ]}
             renderItem={() => <RestaurantInfoCard />}
           />
-        </S.MainWrapper>
-      </S.SafeAreaView>
+        </Wrapper>
+      </Wrapper>
     </TouchableWithoutFeedback>
   );
 };
