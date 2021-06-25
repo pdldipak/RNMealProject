@@ -5,7 +5,7 @@ import star from '../../../../assets/svg/star';
 import open from '../../../../assets/svg/open';
 import closeImage from '../../../../assets/png/close-sign.png';
 import { Spacer } from '../../../components/spacer/Spacer';
-
+import { Text } from '../../../components/typography/Text';
 const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = 'Awesome Restaurant',
@@ -25,21 +25,19 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
       <S.RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <S.Section>
         <S.Info>
-          <S.Title>{name}</S.Title>
-
+          <Text variant="label">{name}</Text>
           <S.Rating>
             {ratingArray.map(() => (
               <SvgXml xml={star} width={20} height={20} />
             ))}
           </S.Rating>
-
-          <S.Address>{address}</S.Address>
+          <Text variant="address">{address}</Text>
         </S.Info>
 
         <S.SectionEnd>
           <Spacer position="left" size="large">
-            {isClosedTemporarily && <S.Img source={closeImage} />}
-            {isOpenNow && <SvgXml xml={open} width={60} height={60} />}
+            {!isClosedTemporarily && <S.Img source={closeImage} />}
+            {!isOpenNow && <SvgXml xml={open} width={60} height={60} />}
           </Spacer>
         </S.SectionEnd>
       </S.Section>
