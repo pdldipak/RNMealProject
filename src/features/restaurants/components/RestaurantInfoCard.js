@@ -36,8 +36,8 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
 
         <S.SectionEnd>
           <Spacer position="left" size="large">
-            {!isClosedTemporarily && <S.Img source={closeImage} />}
-            {!isOpenNow && <SvgXml xml={open} width={60} height={60} />}
+            {isClosedTemporarily && <S.Img source={closeImage} />}
+            {isOpenNow && <SvgXml xml={open} width={60} height={60} />}
           </Spacer>
         </S.SectionEnd>
       </S.Section>
