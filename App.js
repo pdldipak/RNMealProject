@@ -1,9 +1,10 @@
 import React from 'react';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import RestaurantsScreen from './src/features/restaurants/screens/RestaurantsScreen';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/infrastructure/theme';
+import TabNavigation from './src/navigations/TabNavigation';
 import AppLoading from 'expo-app-loading';
+import { SafeArea } from './src/utility/SafeArea';
 import {
   useFonts as useOswald,
   Oswald_400Regular,
@@ -23,7 +24,9 @@ export default function App() {
     return (
       <>
         <ThemeProvider theme={theme}>
-          <RestaurantsScreen />
+          <SafeArea>
+            <TabNavigation />
+          </SafeArea>
         </ThemeProvider>
         <ExpoStatusBar style="auto" backgroundColor="#FFF" />
       </>
