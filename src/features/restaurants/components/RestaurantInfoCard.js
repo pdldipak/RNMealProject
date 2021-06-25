@@ -3,8 +3,8 @@ import * as S from './styled';
 import { SvgXml } from 'react-native-svg';
 import star from '../../../../assets/svg/star';
 import open from '../../../../assets/svg/open';
-//import close from '../../../../assets/svg/close';
 import closeImage from '../../../../assets/png/close-sign.png';
+import { Spacer } from '../../../components/spacer/Spacer';
 
 const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -26,17 +26,21 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
       <S.Section>
         <S.Info>
           <S.Title>{name}</S.Title>
+
           <S.Rating>
             {ratingArray.map(() => (
               <SvgXml xml={star} width={20} height={20} />
             ))}
           </S.Rating>
+
           <S.Address>{address}</S.Address>
         </S.Info>
+
         <S.SectionEnd>
-          {/* {isClosedTemporarily && <SvgXml xml={close} width={60} height={60} />} */}
-          {isClosedTemporarily && <S.Img source={closeImage} />}
-          {isOpenNow && <SvgXml xml={open} width={60} height={60} />}
+          <Spacer position="left" size="large">
+            {isClosedTemporarily && <S.Img source={closeImage} />}
+            {isOpenNow && <SvgXml xml={open} width={60} height={60} />}
+          </Spacer>
         </S.SectionEnd>
       </S.Section>
     </S.RestaurantCard>
