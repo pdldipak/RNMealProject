@@ -11,7 +11,7 @@ import {
 } from '@expo-google-fonts/oswald';
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 import { RestaurantsContextProvider } from './src/services/restaurants/RestaurantsContext';
-
+import { LocationContextProvider } from './src/services/location/LocationContext';
 export default function App() {
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
@@ -25,11 +25,13 @@ export default function App() {
     return (
       <>
         <ThemeProvider theme={theme}>
-          <RestaurantsContextProvider>
-            <SafeArea>
-              <TabNavigation />
-            </SafeArea>
-          </RestaurantsContextProvider>
+          <LocationContextProvider>
+            <RestaurantsContextProvider>
+              <SafeArea>
+                <TabNavigation />
+              </SafeArea>
+            </RestaurantsContextProvider>
+          </LocationContextProvider>
         </ThemeProvider>
         <ExpoStatusBar style="auto" backgroundColor="#FFF" />
       </>
