@@ -9,10 +9,11 @@ export const LocationContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchLocation = (searchKeyword) => {
+  const onSearch = (searchKeyword) => {
     setIsLoading(true);
     setKeyword(searchKeyword);
   };
+
   useEffect(() => {
     if (!keyword.length) {
       //don't do anything
@@ -38,7 +39,7 @@ export const LocationContextProvider = ({ children }) => {
         location,
         isLoading,
         error,
-        search: fetchLocation,
+        search: onSearch,
         keyword,
       }}
     >
