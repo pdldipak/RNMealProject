@@ -3,7 +3,9 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   ActivityIndicator,
+  TouchableOpacity,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import RestaurantInfoCard from '../components/RestaurantInfoCard.js';
 import { Wrapper } from '../../../components/utility/GlobalStyles';
 import { RestaurantsContext } from '../../../services/restaurants/RestaurantsContext.js';
@@ -11,7 +13,9 @@ import * as S from './styled.js';
 import Search from '../components/search/Search.js';
 
 const RestaurantsScreen = () => {
+  const navigation = useNavigation();
   const { restaurantsData, isLoading, error } = useContext(RestaurantsContext);
+
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Wrapper>
@@ -23,7 +27,17 @@ const RestaurantsScreen = () => {
           <S.RestaurantList
             data={restaurantsData}
             renderItem={({ item }) => {
-              return <RestaurantInfoCard restaurant={item} />;
+              return (
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate('RestaurantsDetails', {
+                      restaurant: item,
+                    })
+                  }
+                >
+                  <RestaurantInfoCard restaurant={item} />
+                </TouchableOpacity>
+              );
             }}
             keyExtractor={(item) => item.placeId}
           />
