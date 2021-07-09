@@ -23,14 +23,21 @@ export const Section = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: ${(props) => props.theme.sizes[1]};
 `;
 export const SectionEnd = styled.View`
+  flex-direction: column;
   justify-content: flex-end;
-  padding-right: ${(props) => props.theme.space[1]};
+  margin-right: ${(props) => props.theme.sizes[1]};
 `;
 
 export const Img = styled.Image`
-  width: ${(props) => props.theme.sizes[3]};
-  height: ${(props) => props.theme.sizes[3]};
+  width: ${(props) => props.theme.sizes[2]};
+  height: ${(props) => props.theme.sizes[2]};
   transform: rotate(15deg);
+`;
+
+export const Icon = styled.Image`
+  width: ${(props) => props.theme.sizes[1]};
+  height: ${(props) => props.theme.sizes[1]};
 `;

@@ -4,12 +4,14 @@ import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/infrastructure/theme';
 import TabNavigation from './src/navigations/TabNavigation';
 import AppLoading from 'expo-app-loading';
-import { SafeArea } from './src/utility/SafeArea';
 import {
   useFonts as useOswald,
   Oswald_400Regular,
 } from '@expo-google-fonts/oswald';
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
+import { RestaurantsContextProvider } from './src/services/restaurants/RestaurantsContext';
+import { LocationContextProvider } from './src/services/location/LocationContext';
+import { SafeArea } from './src/components/utility/GlobalStyles';
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -24,9 +26,13 @@ export default function App() {
     return (
       <>
         <ThemeProvider theme={theme}>
-          <SafeArea>
-            <TabNavigation />
-          </SafeArea>
+          <LocationContextProvider>
+            <RestaurantsContextProvider>
+              <SafeArea>
+                <TabNavigation />
+              </SafeArea>
+            </RestaurantsContextProvider>
+          </LocationContextProvider>
         </ThemeProvider>
         <ExpoStatusBar style="auto" backgroundColor="#FFF" />
       </>

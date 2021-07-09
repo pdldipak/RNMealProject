@@ -1,5 +1,10 @@
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 import { SafeAreaView, StatusBar } from 'react-native';
+
+export const Wrapper = styled.View`
+  flex: 1;
+`;
+
 
 export const SafeArea = styled(SafeAreaView)`
   flex: 1;
