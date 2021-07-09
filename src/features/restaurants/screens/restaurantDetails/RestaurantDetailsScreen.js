@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRoute } from '@react-navigation/native';
 import { View } from 'react-native';
-import RestaurantInfoCard from '../../components/RestaurantInfoCard';
+import RestaurantInfoCard from './../../components/restaurantsInfocard/RestaurantInfoCard';
 
 const RestaurantDetailsScreen = () => {
   const route = useRoute();

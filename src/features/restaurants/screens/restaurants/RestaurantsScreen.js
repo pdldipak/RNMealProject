@@ -6,11 +6,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import RestaurantInfoCard from '../components/RestaurantInfoCard.js';
-import { Wrapper } from '../../../components/utility/GlobalStyles';
-import { RestaurantsContext } from '../../../services/restaurants/RestaurantsContext.js';
+
+import { Wrapper } from '../../../../components/utility/GlobalStyles';
+import { RestaurantsContext } from '../../../../services/restaurants/RestaurantsContext.js';
 import * as S from './styled.js';
-import Search from '../components/search/Search.js';
+import Search from '../../components/search/Search.js';
+import RestaurantInfoCard from './../../components/restaurantsInfocard/RestaurantInfoCard';
 
 const RestaurantsScreen = () => {
   const navigation = useNavigation();

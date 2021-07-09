@@ -1,11 +1,11 @@
 import React from 'react';
 import * as S from './styled';
 import { SvgXml } from 'react-native-svg';
-import star from '../../../../assets/svg/star';
-import open from '../../../../assets/svg/open';
-import closeImage from '../../../../assets/png/close-sign.png';
-import { Spacer } from '../../../components/spacer/Spacer';
-import { Text } from '../../../components/typography/Text';
+import star from '../../../../../assets/svg/star';
+import open from '../../../../../assets/svg/open';
+import closeImage from '../../../../../assets/png/close-sign.png';
+import { Spacer } from '../../../../components/spacer/Spacer';
+import { Text } from '../../../../components/typography/Text';
 const RestaurantInfoCard = ({ restaurant }) => {
   const {
     name = 'Awesome Restaurant',
