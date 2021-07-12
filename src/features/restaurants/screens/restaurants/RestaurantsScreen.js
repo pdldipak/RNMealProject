@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { Wrapper } from '../../../../components/utility/GlobalStyles';
+import { SafeArea, Wrapper } from '../../../../components/utility/GlobalStyles';
 import { RestaurantsContext } from '../../../../services/restaurants/RestaurantsContext.js';
 import * as S from './styled.js';
 import Search from '../../components/search/Search.js';
@@ -18,33 +18,35 @@ const RestaurantsScreen = () => {
   const { restaurantsData, isLoading, error } = useContext(RestaurantsContext);
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <Wrapper>
-        <S.SearchContainer>
-          <Search />
-        </S.SearchContainer>
+    <SafeArea>
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <Wrapper>
-          {isLoading && <ActivityIndicator size="large" color="#009900" />}
-          <S.RestaurantList
-            data={restaurantsData}
-            renderItem={({ item }) => {
-              return (
-                <TouchableOpacity
-                  onPress={() =>
-                    navigation.navigate('RestaurantsDetails', {
-                      restaurant: item,
-                    })
-                  }
-                >
-                  <RestaurantInfoCard restaurant={item} />
-                </TouchableOpacity>
-              );
-            }}
-            keyExtractor={(item) => item.placeId}
-          />
+          <S.SearchContainer>
+            <Search />
+          </S.SearchContainer>
+          <Wrapper>
+            {isLoading && <ActivityIndicator size="large" color="#009900" />}
+            <S.RestaurantList
+              data={restaurantsData}
+              renderItem={({ item }) => {
+                return (
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate('RestaurantsDetails', {
+                        restaurant: item,
+                      })
+                    }
+                  >
+                    <RestaurantInfoCard restaurant={item} />
+                  </TouchableOpacity>
+                );
+              }}
+              keyExtractor={(item) => item.placeId}
+            />
+          </Wrapper>
         </Wrapper>
-      </Wrapper>
-    </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
+    </SafeArea>
   );
 };
 
