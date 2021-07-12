@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useRoute } from '@react-navigation/native';
-import { View, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { List } from 'react-native-paper';
 import RestaurantInfoCard from './../../components/restaurantsInfocard/RestaurantInfoCard';
-import { Wrapper } from './../../../../components/utility/GlobalStyles';
+import { SafeArea } from './../../../../components/utility/GlobalStyles';
 
 const RestaurantDetailsScreen = () => {
   const [breakfast, setBreakfast] = useState(false);
@@ -13,7 +13,7 @@ const RestaurantDetailsScreen = () => {
   const route = useRoute();
   const { restaurant } = route.params;
   return (
-    <Wrapper>
+    <SafeArea>
       <RestaurantInfoCard restaurant={restaurant} />
       <ScrollView>
         <List.Accordion
@@ -61,7 +61,7 @@ const RestaurantDetailsScreen = () => {
           <List.Item title="Fanta" />
         </List.Accordion>
       </ScrollView>
-    </Wrapper>
+    </SafeArea>
   );
 };
 
