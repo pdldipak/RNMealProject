@@ -2,9 +2,9 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import { View, Text } from 'react-native';
 import RestaurantsNavigator from './RestaurantsNavigator';
-import MapScreen from './../features/map/screens/MapScreen';
+import MapScreen from '../features/map/screens/MapScreen';
+
 const Tab = createBottomTabNavigator();
 
 const Settings = () => <Text>Setting Screen</Text>;
