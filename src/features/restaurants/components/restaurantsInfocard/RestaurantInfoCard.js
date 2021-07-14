@@ -6,6 +6,8 @@ import open from '../../../../../assets/svg/open';
 import closeImage from '../../../../../assets/png/close-sign.png';
 import { Spacer } from '../../../../components/spacer/Spacer';
 import { Text } from '../../../../components/typography/Text';
+import Favorite from '../../../../components/favorites/Favorite';
+
 const RestaurantInfoCard = ({ restaurant }) => {
   const {
     name = 'Awesome Restaurant',
@@ -22,6 +24,7 @@ const RestaurantInfoCard = ({ restaurant }) => {
   const ratingArray = Array.from(new Array(Math.round(rating)));
   return (
     <S.RestaurantCard elevation={5}>
+      <Favorite restaurant={restaurant}/>
       <S.RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <S.Section>
         <S.Info>
