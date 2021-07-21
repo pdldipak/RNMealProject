@@ -2,16 +2,14 @@ import React from 'react';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/infrastructure/theme';
-import TabNavigation from './src/navigations/TabNavigation';
 import AppLoading from 'expo-app-loading';
 import {
   useFonts as useOswald,
   Oswald_400Regular,
 } from '@expo-google-fonts/oswald';
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
-import { RestaurantsContextProvider } from './src/services/restaurants/RestaurantsContext';
-import { LocationContextProvider } from './src/services/location/LocationContext';
-import { FavoritesContextProvider } from './src/services/favorites/FavoritesContext';
+import Navigation from './src/navigations/index.js';
+import { AuthenticationContextProvider } from './src/services/authentication/AuthenticationContext';
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -26,13 +24,9 @@ export default function App() {
     return (
       <>
         <ThemeProvider theme={theme}>
-          <FavoritesContextProvider>
-            <LocationContextProvider>
-              <RestaurantsContextProvider>
-                <TabNavigation />
-              </RestaurantsContextProvider>
-            </LocationContextProvider>
-          </FavoritesContextProvider>
+          <AuthenticationContextProvider>
+            <Navigation />
+          </AuthenticationContextProvider>
         </ThemeProvider>
         <ExpoStatusBar style="auto" />
       </>
