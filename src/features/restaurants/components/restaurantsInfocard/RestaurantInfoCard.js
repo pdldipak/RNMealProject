@@ -7,6 +7,7 @@ import closeImage from '../../../../../assets/png/close-sign.png';
 import { Spacer } from '../../../../components/spacer/Spacer';
 import { Text } from '../../../../components/typography/Text';
 import Favorite from '../../../../components/favorites/Favorite';
+import { FadeInView } from '../../../../components/utility/FadeAnimation';
 
 const RestaurantInfoCard = ({ restaurant }) => {
   const {
@@ -23,36 +24,40 @@ const RestaurantInfoCard = ({ restaurant }) => {
 
   const ratingArray = Array.from(new Array(Math.round(rating)));
   return (
-    <S.RestaurantCard elevation={5}>
-      <Favorite restaurant={restaurant}/>
-      <S.RestaurantCardCover key={name} source={{ uri: photos[0] }} />
-      <S.Section>
-        <S.Info>
-          <Text variant="label">{name}</Text>
-          <S.Rating>
-            {ratingArray.map((_, i) => (
-              <SvgXml
-                key={`star-${address}-${i}`}
-                xml={star}
-                width={20}
-                height={20}
-              />
-            ))}
-          </S.Rating>
-          <Text variant="address">{address}</Text>
-        </S.Info>
+    <>
+      <FadeInView>
+        <S.RestaurantCard elevation={5}>
+          <Favorite restaurant={restaurant} />
+          <S.RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+          <S.Section>
+            <S.Info>
+              <Text variant="label">{name}</Text>
+              <S.Rating>
+                {ratingArray.map((_, i) => (
+                  <SvgXml
+                    key={`star-${address}-${i}`}
+                    xml={star}
+                    width={20}
+                    height={20}
+                  />
+                ))}
+              </S.Rating>
+              <Text variant="address">{address}</Text>
+            </S.Info>
 
-        <S.SectionEnd>
-          <Spacer position="left" size="large">
-            {isClosedTemporarily && <S.Img source={closeImage} />}
-            {isOpenNow && <SvgXml xml={open} width={32} height={32} />}
-          </Spacer>
-          <Spacer position="left" size="large">
-            <S.Icon source={{ uri: icon }} />
-          </Spacer>
-        </S.SectionEnd>
-      </S.Section>
-    </S.RestaurantCard>
+            <S.SectionEnd>
+              <Spacer position="left" size="large">
+                {isClosedTemporarily && <S.Img source={closeImage} />}
+                {isOpenNow && <SvgXml xml={open} width={32} height={32} />}
+              </Spacer>
+              <Spacer position="left" size="large">
+                <S.Icon source={{ uri: icon }} />
+              </Spacer>
+            </S.SectionEnd>
+          </S.Section>
+        </S.RestaurantCard>
+      </FadeInView>
+    </>
   );
 };
 
