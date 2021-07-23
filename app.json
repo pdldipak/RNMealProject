@@ -4,29 +4,27 @@
     "slug": "RNfoodApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/png/icon.png",
+    "icon": "./assets/png/cutlery.png",
     "splash": {
-      "image": "./assets/png/splash.png",
+      "image": "./assets/png/restaurant.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/png/adaptive-icon.png",
+        "foregroundImage": "./assets/png/restaurant.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/png/favicon.png"
+      "favicon": "./assets/png/restaurant.png"
     }
   }
 }
