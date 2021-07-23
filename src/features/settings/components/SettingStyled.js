@@ -38,5 +38,5 @@ export const PressButton = styled.View`
   height: 65px;
   width: 65px;
   background-color: #fff;
-  border-radius: 50;
+  border-radius: 50px;
 `;

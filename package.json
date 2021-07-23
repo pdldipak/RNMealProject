@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo-google-fonts/lato": "^0.1.0",
     "@expo-google-fonts/oswald": "^0.1.0",
+    "@react-native-async-storage/async-storage": "^1.13.0",
     "@react-native-community/eslint-config": "^3.0.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.11",
@@ -20,13 +21,19 @@
     "eslint": "^7.29.0",
     "expo": "~41.0.1",
     "expo-app-loading": "^1.0.3",
+    "expo-camera": "~11.0.2",
     "expo-font": "~9.1.0",
     "expo-status-bar": "~1.0.4",
+    "firebase": "8.2.3",
+    "firebase-admin": "^9.11.0",
+    "firebase-functions": "^3.14.1",
+    "lottie-react-native": "3.5.0",
     "prettier": "^2.3.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
     "react-native-gesture-handler": "~1.10.2",
+    "react-native-maps": "0.27.1",
     "react-native-paper": "^4.9.1",
     "react-native-reanimated": "~2.1.0",
     "react-native-safe-area-context": "3.2.0",
@@ -35,13 +42,8 @@
     "react-native-uuid": "^2.0.1",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
-    "styled-components": "^5.3.0",
-    "react-native-maps": "0.27.1",
     "react-native-webview": "11.2.3",
-    "@react-native-async-storage/async-storage": "^1.13.0",
-    "firebase": "8.2.3",
-    "lottie-react-native": "3.5.0",
-    "expo-camera": "~11.0.2"
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
